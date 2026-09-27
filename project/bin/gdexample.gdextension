@@ -6,8 +6,8 @@ reloadable = true
 
 [libraries]
 
-macos.debug = "./libgdexample.macos.template_debug.dylib"
-macos.release = "./libgdexample.macos.template_release.dylib"
+macos.debug = "./libgdexample.macos.template_debug.universal.dylib"
+macos.release = "./libgdexample.macos.template_release.universal.dylib"
 windows.debug.x86_32 = "./gdexample.windows.template_debug.x86_32.dll"
 windows.release.x86_32 = "./gdexample.windows.template_release.x86_32.dll"
 windows.debug.x86_64 = "./gdexample.windows.template_debug.x86_64.dll"
