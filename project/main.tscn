@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://cw14exdhnsne2"]
 
+[ext_resource type="Script" uid="uid://bxg1fj58otpgs" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://biu8a0o1ca2vx" path="res://icon.svg" id="1_ig7tw"]
 
 [node name="Main" type="Node2D" unique_id=1846875557]
+script = ExtResource("1_0xm2m")
 
 [node name="GDExample" type="GDExample" parent="." unique_id=1972765868]
-position = Vector2(3.5775952, 5.0046387)
+amplitude = 50.0
+speed = 3.8
+position = Vector2(0.31102666, 72.92902)
 texture = ExtResource("1_ig7tw")
 centered = false
+
+[connection signal="position_changed" from="GDExample" to="." method="_on_gd_example_position_changed"]
