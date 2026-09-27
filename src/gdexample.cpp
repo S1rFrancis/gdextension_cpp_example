@@ -13,11 +13,14 @@ void GDExample::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &GDExample::set_speed);
 
     ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed", PROPERTY_HINT_RANGE, "0,20,0.01"), "set_speed", "get_speed");
+
+   ADD_SIGNAL((MethodInfo("position_changed", PropertyInfo(Variant::OBJECT, "node"), PropertyInfo(Variant::VECTOR2, "new_pos"))));
 }
 
 GDExample::GDExample() {
     // Initialize any variables here.
     time_passed = 0.0;
+    time_emit = 0.0;
     amplitude = 10.0;
     speed = 1.0;
 }
@@ -35,6 +38,13 @@ void GDExample::_process(double delta) {
     );
 
     set_position(new_position);
+
+    time_emit += delta;
+    if (time_emit > 1.0) {
+        emit_signal("position_changed", this, new_position);
+
+        time_emit = 0.0;
+    }
 }
 
 void GDExample::set_amplitude(const double p_amplitude) {

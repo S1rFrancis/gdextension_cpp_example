@@ -8,6 +8,7 @@ namespace godot {
 
         private:
             double time_passed;
+            double time_emit;
             double amplitude;
             double speed;
 
